@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<title>G4Skins – Dark Side</title>
+<style>
+  body {
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEwL3qAeX5O9FHzxDH1FuDpVBbl44th1-6RQ&s') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+  .logo {
+    width: 260px;
+    height: 260px;
+    margin: 50px auto;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .content {
+    margin-top: 40px;
+    font-size: 26px;
+    text-shadow: 0 0 5px white;
+  }
+  img {
+    margin-top: 30px;
+    width: 350px;
+    border: 3px solid white;
+    border-radius: 10px;
+  }
+  .big-link {
+    font-size: 45px;
+    color: yellow;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 40px;
+  }
+  .big-link:hover {
+    text-shadow: 0 0 15px yellow;
+  }
+  /* Mały filmik w prawym górnym rogu */
+  .corner-video {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 160px;
+    height: 90px;
+    animation: spinVideo 3s linear infinite;
+    border: 2px solid white;
+    border-radius: 8px;
+  }
+  @keyframes spinVideo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>
+</head>
+<body>
+
+<!-- Odtwarzanie muzyki -->
+<audio id="muzyka" loop>
+  <source src="muza.mp3" type="audio/mpeg">
+  Twoja przeglądarka nie wspiera odtwarzania audio.
+</audio>
+
+<script>
+  // Włącz muzykę po pierwszym kliknięciu
+  document.addEventListener("click", function() {
+      var audio = document.getElementById("muzyka");
+      audio.play();
+  }, { once: true });
+</script>
+
+<!-- Logo -->
+<img class="logo" src="https://s3-eu-west-1.amazonaws.com/tpd/logos/61af9212d04948326e53dbf7/0x0.png" alt="Logo G4Skins" />
+
+<!-- Mały filmik lokalny w prawym górnym rogu -->
+<video class="corner-video" src="kajtek.mov" autoplay loop muted></video>
+
+<style>
+.corner-video {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 480px;      /* szerokość filmiku */
+    height: 270px;       /* wysokość filmiku */
+    animation: spinVideo 3s linear infinite;  /* obrót */
+    border: 2px solid white;
+    border-radius: 8px;
+    object-fit: cover;
+}
+@keyframes spinVideo {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+</style>
+
+<div class="content">
+  Jeśli tu jesteś to dotarłeś na ciemną stronę mocy G4Skins.<br><br>
+  A teraz zobacz filmik:
+</div>
+<video id="uciekajacy-film" src="metoda.mp4" autoplay loop controls width="1120" height="630" style="position: relative;"></video>
+
+<script>
+const film = document.getElementById('uciekajacy-film');
+
+// Funkcja do powolnego „uciekania” filmu
+film.addEventListener('mousemove', () => {
+    const maxX = window.innerWidth - film.offsetWidth;
+    const maxY = window.innerHeight - film.offsetHeight;
+
+    // Losowe nowe położenie
+    const newX = Math.floor(Math.random() * maxX);
+    const newY = Math.floor(Math.random() * maxY);
+
+    // Animacja przesunięcia
+    film.style.transition = 'all 0.25s ease';
+    film.style.position = 'absolute';
+    film.style.left = newX + 'px';
+    film.style.top = newY + 'px';
+});
+
+// Zapobiega zatrzymaniu filmu przez kliknięcie
+film.addEventListener('pause', () => {
+    film.play();
+});
+</script>
+
+
+<p class="content">Jeśli zrobiłeś tę metodę, to teraz zobacz to zdjęcie:</p>
+
+<img src="https://preview.redd.it/o-que-significa-esse-meme-reflexivo-ai-de-todos-os-caminhos-v0-ujfn49e8c0qf1.png?auto=webp&s=0d1e06f730c639a62285ee85c8a77b908d70bae7" alt="Zdjęcie" />
+
+<br><br>
+<a class="big-link" href="https://g4skins.com/pl/shop" target="_blank">PRZEJDŹ DO SKLEPU G4SKINS</a>
+<!-- Kontener z obrazkiem i napisem po prawej -->
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+
+  <!-- Obrazek -->
+  <img src="kacper.jpg" alt="Kacper" class="pulsujący-obrazek">
+
+  <!-- Napis/Przycisk Verification -->
+  <button id="verification-btn" style="
+        margin-left: 20px; 
+        padding: 10px 20px; 
+        font-size: 24px; 
+        cursor: pointer;
+        border: 2px solid white; 
+        border-radius: 8px;
+        background-color: black; 
+        color: yellow;
+        font-weight: bold;
+    ">Verification</button>
+
+</div>
+
+<!-- Odtwarzacz dźwięku (niewidoczny) -->
+<audio id="krzyk-audio" src="krzyk.mp3" preload="auto"></audio>
+
+<script>
+const btn = document.getElementById('verification-btn');
+const audio = document.getElementById('krzyk-audio');
+
+btn.addEventListener('click', () => {
+    audio.volume = 1.0; // maksymalna głośność
+    audio.currentTime = 0; // zaczynamy od początku
+    audio.play();
+});
+</script>
+
+<style>
+.pulsujący-obrazek {
+    display: block;
+    width: 300px;
+    height: auto;
+    animation: pulsacja 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulsacja {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.7); }
+    100% { transform: scale(1); }
+}
+</style>
+
+</style>
+<!-- Filmik dance.mp4 na dole strony, start po kliknięciu -->
+<video src="dance.mp4" loop controls width="560" height="315" style="display: block; margin: 40px auto 20px auto; border: 3px solid white; border-radius: 10px; object-fit: cover;"></video>
+
+
+</body>
+</html>
